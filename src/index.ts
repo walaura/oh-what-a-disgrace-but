@@ -33,7 +33,7 @@ const makeForce = (props: UserlandForce): Force => ({
 	easing: BezierEasing(1, 10, 1, -10),
 });
 
-$button.innerText = '🤠';
+$button.innerText = '🤠🙀🤠🙀🤠🙀😡🤠🙀🤠🙀🤠🙀😡';
 $action.innerText = 'push!';
 document.body.appendChild($button);
 document.body.appendChild(document.createElement('hr'));
@@ -42,7 +42,7 @@ document.body.appendChild($action);
 $action.onclick = () => {
 	forces.push(
 		makeForce({
-			strength: new XYCoordinates(200, 0),
+			strength: new XYCoordinates(150, 0),
 			decay: 1,
 		})
 	);
@@ -76,6 +76,8 @@ class XYCoordinates {
 
 let transform = new XYCoordinates(0, 0);
 
+const loopAt = new XYCoordinates(452 / 2, 100);
+
 const loop = () => {
 	let motion = new XYCoordinates(0, 0);
 
@@ -95,6 +97,9 @@ const loop = () => {
 		})
 		.filter(Boolean);
 	transform.add(motion);
+	transform.map((val, key) => {
+		return val % loopAt[key];
+	});
 	transform.applyCSS($button);
 	requestAnimationFrame(loop);
 };
