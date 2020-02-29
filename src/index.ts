@@ -30,7 +30,7 @@ const easeForce = ({
 const makeForce = (props: UserlandForce): Force => ({
 	...props,
 	appliedStrength: new XYCoordinates(props.strength.x, props.strength.y),
-	easing: BezierEasing(0.8, -0.5, 0.76, 0.86),
+	easing: BezierEasing(1, 10, 1, -10),
 });
 
 $button.innerText = '🤠';
@@ -42,8 +42,8 @@ document.body.appendChild($action);
 $action.onclick = () => {
 	forces.push(
 		makeForce({
-			strength: new XYCoordinates(1, 0),
-			decay: 0.01,
+			strength: new XYCoordinates(200, 0),
+			decay: 1,
 		})
 	);
 };
