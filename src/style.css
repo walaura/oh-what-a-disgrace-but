@@ -1,0 +1,16 @@
+button {
+  font-size: 2em;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+* {
+  padding: 0;
+  margin:0
+}
